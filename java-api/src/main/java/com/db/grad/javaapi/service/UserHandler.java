@@ -1,6 +1,7 @@
 package com.db.grad.javaapi.service;
 
 import com.db.grad.javaapi.model.User;
+import com.db.grad.javaapi.repository.DogsRepository;
 import com.db.grad.javaapi.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,14 @@ import java.util.Optional;
 public class UserHandler implements UserService {
 
     private UsersRepository itsUsersRepo;
-    public List<User> getAllUsers(){
 
+    @Autowired
+    public UserHandler( UsersRepository userRepo )
+    {
+        itsUsersRepo = userRepo;
+    }
+    public List<User> getAllUsers(){
+        return itsUsersRepo.findAll();
     }
 
     public User addUser(User theUser){
@@ -22,7 +29,7 @@ public class UserHandler implements UserService {
     }
 
     public long getNoOfUsers(){
-        return itsUsersRepo.count;
+        return itsUsersRepo.count();
     }
 
     public boolean removeUser(long uniqueId){
@@ -39,10 +46,10 @@ public class UserHandler implements UserService {
     }
 
 
-    public boolean getUserByUsername(User name){
+    public User getUserByUsername(User name){
         User userToFind = new User();
-        userToFind.setName(name.getUsername);
-        List<User> users = itsUsersRepo.findByName(userToFind);
+        userToFind.setUsername(name.getUsername());
+        List<User> users = itsUsersRepo.findByUsername(userToFind);
         User result = null;
 
         if( users.size() == 1)

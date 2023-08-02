@@ -1,15 +1,10 @@
+package com.db.grad.javaapi.model;
+
 import java.util.ArrayList;
 public class User {
 
     private String username;
     private String password;
-    //private ArrayList<Book> booksResponsibleFor;
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-        //this.booksResponsibleFor = booksResponsibleFor;
-    }
 
     public String getUsername() {
         return username;
@@ -27,11 +22,4 @@ public class User {
         this.password = password;
     }
 
-   // public ArrayList<Book> getBooksResponsibleFor() {
-        return booksResponsibleFor;
-    }
-
-   // public void setBooksResponsibleFor(ArrayList<Book> booksResponsibleFor) {
-      //  this.booksResponsibleFor = booksResponsibleFor;
-    //}
 }
