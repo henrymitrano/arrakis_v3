@@ -34,4 +34,4 @@ public class User {
    // public void setBooksResponsibleFor(ArrayList<Book> booksResponsibleFor) {
       //  this.booksResponsibleFor = booksResponsibleFor;
     //}
-}git 
+}

@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UsersRepository extends JpaRepository <User, Long>
 {
     User findByIsin(int isin);
+    List<User> findByUsername(User name);
 
 }
