@@ -7,7 +7,8 @@ public interface BondService {
 
     public boolean removeBond(long UniqueID);
 
+    public long getNumOfBonds();
+
     public Bond getBondByIsin(int isin);
-    public Bond getBondByCusip(int cusip);
-    public Bond getBondByHolder(String holderName);
+
 }

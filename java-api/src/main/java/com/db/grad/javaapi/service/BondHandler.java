@@ -31,17 +31,12 @@ public class BondHandler implements BondService {
     }
 
     @Override
+    public long getNumOfBonds() {
+        return bondRepository.count();
+    }
+
+    @Override
     public Bond getBondByIsin(int isin) {
-        return null;
-    }
-
-    @Override
-    public Bond getBondByCusip(int cusip) {
-        return null;
-    }
-
-    @Override
-    public Bond getBondByHolder(String holderName) {
-        return null;
+        return bondRepository.findByIsin(isin);
     }
 }
