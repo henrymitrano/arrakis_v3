@@ -3,12 +3,12 @@ public class User {
 
     private String username;
     private String password;
-    private ArrayList<Book> booksResponsibleFor;
+    //private ArrayList<Book> booksResponsibleFor;
 
-    public User(String username, String password, ArrayList<Book> booksResponsibleFor) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.booksResponsibleFor = booksResponsibleFor;
+        //this.booksResponsibleFor = booksResponsibleFor;
     }
 
     public String getUsername() {
@@ -27,11 +27,11 @@ public class User {
         this.password = password;
     }
 
-    public ArrayList<Book> getBooksResponsibleFor() {
+   // public ArrayList<Book> getBooksResponsibleFor() {
         return booksResponsibleFor;
     }
 
-    public void setBooksResponsibleFor(ArrayList<Book> booksResponsibleFor) {
-        this.booksResponsibleFor = booksResponsibleFor;
-    }
+   // public void setBooksResponsibleFor(ArrayList<Book> booksResponsibleFor) {
+      //  this.booksResponsibleFor = booksResponsibleFor;
+    //}
 }

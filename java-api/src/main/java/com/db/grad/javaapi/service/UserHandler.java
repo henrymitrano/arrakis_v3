@@ -15,19 +15,21 @@ public class UserHandler implements UserService {
     }
 
     public User addUser(User theUser){
+
     }
 
     public long getNoOfUsers(){
 
     }
 
-    public boolean removeUser(String username){
+    public boolean removeUser(long uniqueId){
 
     }
 
-    public User getUserByUsername(String username){
+    public User getUserById(long uniqueId){
 
     }
 
 
-}
+
+}git

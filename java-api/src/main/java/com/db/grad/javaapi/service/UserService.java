@@ -13,9 +13,9 @@ public interface UserService
 
     public long getNoOfUsers();
 
-    public boolean removeUser(String username);
+    public boolean removeUser(long uniqueId);
 
-    public User getUserByUsername(String username);
+    public User getUserById(long uniqueId);
 
 
 }
