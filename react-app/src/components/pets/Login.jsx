@@ -8,8 +8,23 @@ export const Login = () => {
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
-      //access backend and verify username correlates to password
+      if (!username || !password){
+        alert("Username or Password is blank");
+        return;
+      }
 
+      const user = login.find((user) => user.username = username);
+
+      if (user) {
+
+        if(user.password == password){
+          alert("login successful!");
+        } else {
+          alert("username or password incorrect");
+        }
+      } else {
+        alert("username not found");
+      }
     }
     
 
