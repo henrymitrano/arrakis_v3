@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.GregorianCalendar;
+
 @Entity
 @Table(name = "bonds")
 public class Bond {
@@ -15,13 +17,13 @@ public class Bond {
     private int cusip;
     private String bondIssuer;
     private String bondHolder;
-    private Date maturityDate;
+    private GregorianCalendar maturityDate;
     private int quantity;
     private long unitPrice;
     private String currency;
     private String buyOrSell;
-    private Date tradeDate;
-    private Date settlementDate;
+    private GregorianCalendar tradeDate;
+    private GregorianCalendar settlementDate;
     private String bondType;
     private int faceValue;
     private long couponPercent;
@@ -69,19 +71,19 @@ public class Bond {
         this.buyOrSell = buyOrSell;
     }
     @Column(name = "trade_date", nullable = false)
-    public Date getTradeDate() {
+    public GregorianCalendar getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(Date tradeDate) {
+    public void setTradeDate(GregorianCalendar tradeDate) {
         this.tradeDate = tradeDate;
     }
     @Column(name = "settlement_date", nullable = false)
-    public Date getSettlementDate() {
+    public GregorianCalendar getSettlementDate() {
         return settlementDate;
     }
 
-    public void setSettlementDate(Date settlementDate) {
+    public void setSettlementDate(GregorianCalendar settlementDate) {
         this.settlementDate = settlementDate;
     }
     @Column(name = "bond_type", nullable = false)
@@ -158,11 +160,11 @@ public class Bond {
         this.bondHolder = bondHolder;
     }
     @Column(name = "maturity_date", nullable = false)
-    public Date getMaturityDate() {
+    public GregorianCalendar getMaturityDate() {
         return maturityDate;
     }
 
-    public void setMaturityDate(Date maturityDate) {
+    public void setMaturityDate(GregorianCalendar date) {
         this.maturityDate = maturityDate;
     }
 }
