@@ -18,8 +18,8 @@ public interface BondService {
 
     public List<Bond> getAllBonds();
 
-    public List<Bond> getMaturing(Calendar currentDate);
+    public List<Bond> getMaturing(Date currentDate);
 
-    public List<Bond> getMatured(Calendar  currentDate);
+    public List<Bond> getMatured(Date  currentDate);
 
 }

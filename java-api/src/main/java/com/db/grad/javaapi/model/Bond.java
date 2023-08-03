@@ -18,13 +18,13 @@ public class Bond {
     private int cusip;
     private String bondIssuer;
     private String bondHolder;
-    private Calendar maturityDate;
+    private Date maturityDate;
     private int quantity;
     private long unitPrice;
     private String currency;
     private String buyOrSell;
-    private Calendar tradeDate;
-    private Calendar settlementDate;
+    private Date tradeDate;
+    private Date settlementDate;
     private String bondType;
     private int faceValue;
     private long couponPercent;
@@ -72,19 +72,19 @@ public class Bond {
         this.buyOrSell = buyOrSell;
     }
     @Column(name = "trade_date", nullable = false)
-    public Calendar getTradeDate() {
+    public Date getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(Calendar tradeDate) {
+    public void setTradeDate(Date tradeDate) {
         this.tradeDate = tradeDate;
     }
     @Column(name = "settlement_date", nullable = false)
-    public Calendar getSettlementDate() {
+    public Date getSettlementDate() {
         return settlementDate;
     }
 
-    public void setSettlementDate(GregorianCalendar settlementDate) {
+    public void setSettlementDate(Date settlementDate) {
         this.settlementDate = settlementDate;
     }
     @Column(name = "bond_type", nullable = false)
@@ -116,7 +116,7 @@ public class Bond {
         return bondStatus;
     }
 
-    public void setBond_status(String bStatus) {
+    public void setBondStatus(String bStatus) {
         this.bondStatus = bStatus;
     }
     @Column(name = "trade_status", nullable = false)
@@ -161,11 +161,11 @@ public class Bond {
         this.bondHolder = bondHolder;
     }
     @Column(name = "maturity_date", nullable = false)
-    public Calendar getMaturityDate() {
+    public Date getMaturityDate() {
         return maturityDate;
     }
 
-    public void setMaturityDate(Calendar date) {
-        this.maturityDate = maturityDate;
+    public void setMaturityDate(Date date) {
+        this.maturityDate = date;
     }
 }

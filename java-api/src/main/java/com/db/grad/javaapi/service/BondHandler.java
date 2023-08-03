@@ -2,6 +2,7 @@ package com.db.grad.javaapi.service;
 
 import com.db.grad.javaapi.model.Bond;
 import com.db.grad.javaapi.repository.BondRepository;
+import org.apache.commons.lang3.time.DateUtils;
 
 import java.util.*;
 
@@ -46,16 +47,12 @@ public class BondHandler implements BondService {
     }
 
     @Override
-    public List<Bond> getMaturing(Calendar currentDate) {
+    public List<Bond> getMaturing(Date currentDate) {
         List <Bond> bondsMaturing = new ArrayList<>();
-        Calendar futureDate = new GregorianCalendar();
-        futureDate.add(currentDate.DAY_OF_MONTH, 6);
-
+        Date futureDate = new Date();
+        futureDate = DateUtils.addDays(currentDate, 6);
         for (Bond bond: bondRepository.findAll()){
             System.out.println("Here");
-            if(bond.getMaturityDate().after(currentDate)) {
-                System.out.println("Here");
-            }
             if(bond.getMaturityDate().after(currentDate) //Checks for within 5
                     && bond.getMaturityDate().before(futureDate)){
                 bondsMaturing.add(bond);
@@ -65,13 +62,13 @@ public class BondHandler implements BondService {
     }
 
     @Override
-    public List<Bond> getMatured(Calendar currentDate) {
+    public List<Bond> getMatured(Date currentDate) {
         List <Bond> bondsMatured = new ArrayList<>();
-        Calendar pastDate = new GregorianCalendar();
-        pastDate.add(currentDate.DAY_OF_MONTH, -6);
+        Date pastDate = new Date();
+        pastDate = DateUtils.addDays(currentDate, - 6);
         for (Bond bond: bondRepository.findAll()){
-            if(bond.getMaturityDate().after(currentDate) //Checks for within 5
-                    && bond.getMaturityDate().before(pastDate)){
+            if(bond.getMaturityDate().before(currentDate) //Checks for within 5
+                    && bond.getMaturityDate().after(pastDate)){
                 bondsMatured.add(bond);
             }
         }

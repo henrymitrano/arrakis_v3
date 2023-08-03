@@ -70,7 +70,7 @@ public class BondHandlerTest {
     public  void  add_a_bond_and_delete_one() {
         // arrange
         Bond theBond = new Bond();
-        theBond.setBond_status("active");
+        theBond.setBondStatus("active");
         Mockito.when(bondRepo.save(theBond)).thenReturn(theBond);
         Bond uniqueBond = cut.addBond( theBond );
 
@@ -124,37 +124,79 @@ public class BondHandlerTest {
     public void add_bonds_check_maturing_bonds_are_returned() {
         cut = new BondHandler(bondRepo);
         Bond bond1 = new Bond();
-        Calendar matureDate = new GregorianCalendar();
-        matureDate.set(21,12,4);
+        Date matureDate = new Date();
+        matureDate.setYear(2021);
+        matureDate.setMonth(11);
+        matureDate.setDate(8);
         bond1.setMaturityDate(matureDate);
         bond1.setIsin("XS1988387210");
-        Mockito.when(bondRepo.save(bond1)).thenReturn(bond1);
-        cut.addBond(bond1);
         Bond expectedBond = bond1;
 
         Bond bond2 = new Bond();
         bond2.setIsin("XS1988387210");
-        Mockito.when(bondRepo.save(bond2)).thenReturn(bond2);
-        Mockito.when(bondRepo.count()).thenReturn(2L);
-        cut.addBond(bond2);
-
-        assertEquals(2, bondRepo.count());
-        assertEquals(2, cut.getNumOfBonds());
-
-//        String expectedIsin = "XS1988387210";
-//
-//        Calendar currentDate = new GregorianCalendar();
-//        currentDate.set(21, 12, 1);
-//        List<Bond> expectedList = new ArrayList<>();
-//        expectedList.add(expectedBond);
-//        List<Bond> result = cut.getMaturing(currentDate);
-//
-//        assertEquals(result.get(0).getIsin(), expectedIsin);
+        Date matureDate2 = new Date();
+        matureDate2.setYear(2021);
+        matureDate2.setMonth(7);
+        matureDate2.setDate(2);
+        bond2.setMaturityDate(matureDate2);
+        ArrayList<Bond> bonds = new ArrayList<>();
+        bonds.add(bond1);
+        bonds.add(bond2);
+        Mockito.when(bondRepo.findAll()).thenReturn(bonds);
 
 
 
+        String expectedIsin = "XS1988387210";
+
+        Date currentDate = new Date();
+        currentDate.setYear(2021);
+        currentDate.setMonth(11);
+        currentDate.setDate(7);
+        List<Bond> expectedList = new ArrayList<>();
+        expectedList.add(expectedBond);
+        List<Bond> result = cut.getMaturing(currentDate);
+
+        assertEquals(result.get(0).getIsin(), expectedIsin);
     }
 
+    @Test
+    public void add_bonds_check_matured_bonds_are_returned() {
+        cut = new BondHandler(bondRepo);
+        Bond bond1 = new Bond();
+        Date matureDate = new Date();
+        matureDate.setYear(2021);
+        matureDate.setMonth(11);
+        matureDate.setDate(4);
+        bond1.setMaturityDate(matureDate);
+        bond1.setIsin("XS1988387210");
+        Bond expectedBond = bond1;
+
+        Bond bond2 = new Bond();
+        bond2.setIsin("XS1988387210");
+        Date matureDate2 = new Date();
+        matureDate2.setYear(2021);
+        matureDate2.setMonth(7);
+        matureDate2.setDate(2);
+        bond2.setMaturityDate(matureDate2);
+        ArrayList<Bond> bonds = new ArrayList<>();
+        bonds.add(bond1);
+        bonds.add(bond2);
+        Mockito.when(bondRepo.findAll()).thenReturn(bonds);
+
+
+
+        String expectedIsin = "XS1988387210";
+
+        Date currentDate = new Date();
+        currentDate.setYear(2021);
+        currentDate.setMonth(11);
+        currentDate.setDate(7);
+        List<Bond> expectedList = new ArrayList<>();
+        expectedList.add(expectedBond);
+        List<Bond> result = cut.getMatured(currentDate);
+
+        assertEquals(result.get(0).getIsin(), expectedIsin);
+    }
 
 
 
