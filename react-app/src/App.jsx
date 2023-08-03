@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Pets } from "./components/pets/Pets";
-import { Login } from "./components/pets/Login";
+import { LoginPage } from "./components/LoginPage";
 
 const App = () => {
-  return <Login />;
+  return <LoginPage />;
 };
 
 export default App;

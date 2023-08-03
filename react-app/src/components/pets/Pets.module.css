@@ -1,6 +1,7 @@
 .pets {
     margin:100px 100px 100px 100px;
     display: grid;
+    font-size: 100px;
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
 }
