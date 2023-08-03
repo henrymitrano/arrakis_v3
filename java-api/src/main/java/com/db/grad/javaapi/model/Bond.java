@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -13,17 +14,17 @@ public class Bond {
 
     @Id
     private long id;
-    private int isin;
+    private String isin;
     private int cusip;
     private String bondIssuer;
     private String bondHolder;
-    private GregorianCalendar maturityDate;
+    private Calendar maturityDate;
     private int quantity;
     private long unitPrice;
     private String currency;
     private String buyOrSell;
-    private GregorianCalendar tradeDate;
-    private GregorianCalendar settlementDate;
+    private Calendar tradeDate;
+    private Calendar settlementDate;
     private String bondType;
     private int faceValue;
     private long couponPercent;
@@ -71,15 +72,15 @@ public class Bond {
         this.buyOrSell = buyOrSell;
     }
     @Column(name = "trade_date", nullable = false)
-    public GregorianCalendar getTradeDate() {
+    public Calendar getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(GregorianCalendar tradeDate) {
+    public void setTradeDate(Calendar tradeDate) {
         this.tradeDate = tradeDate;
     }
     @Column(name = "settlement_date", nullable = false)
-    public GregorianCalendar getSettlementDate() {
+    public Calendar getSettlementDate() {
         return settlementDate;
     }
 
@@ -128,11 +129,11 @@ public class Bond {
     }
 
     @Column(name = "isin", nullable = false)
-    public int getIsin() {
+    public String getIsin() {
         return isin;
     }
 
-    public void setIsin(int isin) {
+    public void setIsin(String isin) {
         this.isin = isin;
     }
     @Column(name = "cusip", nullable = false)
@@ -160,11 +161,11 @@ public class Bond {
         this.bondHolder = bondHolder;
     }
     @Column(name = "maturity_date", nullable = false)
-    public GregorianCalendar getMaturityDate() {
+    public Calendar getMaturityDate() {
         return maturityDate;
     }
 
-    public void setMaturityDate(GregorianCalendar date) {
+    public void setMaturityDate(Calendar date) {
         this.maturityDate = maturityDate;
     }
 }

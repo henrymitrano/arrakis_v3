@@ -36,7 +36,7 @@ public class BondHandler implements BondService {
     }
 
     @Override
-    public Bond getBondByIsin(int isin) {
+    public List<Bond> getBondByIsin(String isin) {
         return bondRepository.findByIsin(isin);
     }
 
@@ -50,7 +50,12 @@ public class BondHandler implements BondService {
         List <Bond> bondsMaturing = new ArrayList<>();
         Calendar futureDate = new GregorianCalendar();
         futureDate.add(currentDate.DAY_OF_MONTH, 6);
+
         for (Bond bond: bondRepository.findAll()){
+            System.out.println("Here");
+            if(bond.getMaturityDate().after(currentDate)) {
+                System.out.println("Here");
+            }
             if(bond.getMaturityDate().after(currentDate) //Checks for within 5
                     && bond.getMaturityDate().before(futureDate)){
                 bondsMaturing.add(bond);

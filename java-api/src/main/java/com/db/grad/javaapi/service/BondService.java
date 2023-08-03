@@ -14,7 +14,7 @@ public interface BondService {
 
     public long getNumOfBonds();
 
-    public Bond getBondByIsin(int isin);
+    public List <Bond> getBondByIsin(String isin);
 
     public List<Bond> getAllBonds();
 
