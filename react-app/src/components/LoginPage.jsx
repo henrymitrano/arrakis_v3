@@ -24,8 +24,8 @@ export const LoginPage = () => {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="name@example.com"
+                type="text"
+                placeholder="username"
                 autoFocus
               />
             </Form.Group>
@@ -33,8 +33,8 @@ export const LoginPage = () => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Label>Password</Form.Label>
+              <Form.Control as="textarea" rows={1} />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -43,7 +43,7 @@ export const LoginPage = () => {
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>
