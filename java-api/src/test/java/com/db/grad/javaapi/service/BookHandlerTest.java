@@ -1,5 +1,6 @@
 package com.db.grad.javaapi.service;
 
+import com.db.grad.javaapi.model.Bond;
 import com.db.grad.javaapi.repository.BooksRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,8 +13,12 @@ import com.db.grad.javaapi.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 @ExtendWith(MockitoExtension.class)
 public class BookHandlerTest {
 
@@ -80,7 +85,29 @@ public class BookHandlerTest {
         assertEquals(books.size(), result.size());
     }
 
+    @Test
+    public  void  add_a_book_and_delete_one() {
+        // arrange
+        Book theBook = new Book();
+        theBook.setBookNo(10);
+        Mockito.when(itsBookRepo.save(theBook)).thenReturn(theBook);
+        Book uniqueBook = cut.addBook( theBook );
 
+        Optional<Book> opt = Optional.of(theBook);
+        Mockito.when(itsBookRepo.findById(theBook.getBookNo())).thenReturn(opt);
+
+        long expectedResult = 0;
+        boolean expectedStatus = true;
+
+        // act
+        boolean actualStatus = cut.removeBook( uniqueBook.getBookNo() );
+        long actualResult = cut.getNoOfBooks();
+
+        // assert
+        assertEquals( expectedStatus, actualStatus);
+        assertEquals( expectedResult, actualResult );
+        verify(itsBookRepo, times(1)).delete(theBook);
+    }
 
 
 }
