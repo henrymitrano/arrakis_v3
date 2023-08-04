@@ -31,6 +31,11 @@ public class Bond {
     private String bondStatus;
     private String tradeStatus;
 
+    public void setTradeStatus(String tradeStatus) {
+        this.tradeStatus = tradeStatus;
+    }
+    
+
     @Id
     @Column(name = "bond_id", nullable = false)
     public long getId() {

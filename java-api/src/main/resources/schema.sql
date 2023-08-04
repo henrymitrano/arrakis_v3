@@ -7,9 +7,13 @@ CREATE TABLE dogs (
     age INT NOT NULL
 );
 
+
+CREATE TABLE TEST AS SELECT * FROM CSV-READ('db-bonds-data.csv');
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(250) NOT NULL,
     password VARCHAR(250) NOT NULL
 );
+
 
