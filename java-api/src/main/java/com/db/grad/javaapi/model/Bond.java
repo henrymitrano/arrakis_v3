@@ -119,13 +119,14 @@ public class Bond {
     public void setBondStatus(String bStatus) {
         this.bondStatus = bStatus;
     }
+
     @Column(name = "trade_status", nullable = false)
     public String getTradeStatus() {
         return tradeStatus;
     }
 
-    public void setTrade_status(String tStatus) {
-        this.tradeStatus = tStatus;
+    public void setTradeStatus(String tradeStatus) {
+        this.tradeStatus = tradeStatus;
     }
 
     @Column(name = "isin", nullable = false)
