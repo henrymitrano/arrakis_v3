@@ -3,9 +3,10 @@ package com.db.grad.javaapi.service;
 import com.db.grad.javaapi.model.Bond;
 import com.db.grad.javaapi.repository.BondRepository;
 import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
-
+@Service
 public class BondHandler implements BondService {
     private BondRepository bondRepository;
 

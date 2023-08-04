@@ -6,3 +6,4 @@ CREATE TABLE dogs (
     age INT NOT NULL
 );
 
+CREATE TABLE TEST AS SELECT * FROM CSV-READ('db-bonds-data.csv');
