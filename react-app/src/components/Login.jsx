@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { findUsers } from "../../services/login-service";
-import styles from "./Pets.module.css";
+import { findUsers } from "../services/login-service";
+import styles from "./components/Pets.module.css";
+
 
 export const Login = () => {
     const [login, setUsers] = useState([]);
@@ -19,6 +20,7 @@ export const Login = () => {
 
         if(user.password == password){
           alert("login successful!");
+          window.location.href = "/"
         } else {
           alert("username or password incorrect");
         }

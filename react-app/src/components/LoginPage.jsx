@@ -1,13 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { findUsers } from "../services/login-service";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+
 export const LoginPage = () => {  
   const [show, setShow] = useState(false);
+  const [login, setUsers] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setUsername("");
+    setPassword("");
+  } 
   const handleShow = () => setShow(true);
+
+ 
+  const handleLogin = () => {
+    if (!username || !password){
+      alert("Username or Password is blank");
+      return;
+    }
+
+    const user = login.find((user) => user.username = username);
+
+    if (user) {
+
+      if(user.password == password){
+        alert("login successful!");
+      } else {
+        alert("username or password incorrect");
+      }
+    } else {
+      alert("username not found");
+    }
+    handleClose();
+  }
+
+  useEffect(() => {
+    findUsers()
+          .then(({data}) => {
+          setUsers(data);
+          });
+  }, []);
 
   return (
     <>
@@ -27,6 +65,8 @@ export const LoginPage = () => {
                 type="text"
                 placeholder="username"
                 autoFocus
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
             <Form.Group
@@ -34,7 +74,12 @@ export const LoginPage = () => {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Password</Form.Label>
-              <Form.Control as="textarea" rows={1} />
+              <Form.Control 
+                type = "password" 
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -42,12 +87,15 @@ export const LoginPage = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleLogin}>
             Submit
           </Button>
         </Modal.Footer>
       </Modal>
     </>
   );
+
+  
 }
+
 
