@@ -15,8 +15,8 @@ public interface BookService
 
     public boolean removeBook(long uniqueId);
 
-    public Book getBookByBookNo(Book book);
-
-    public Book getBookById(long uniqueId);
+//    public Book getBookByBookNo(Book book);
+//
+//    public Book getBookById(long uniqueId);
 
 }

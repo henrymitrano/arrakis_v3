@@ -15,8 +15,5 @@ public interface UserService
 
     public boolean removeUser(long uniqueId);
 
-    public User getUserByUsername(User name);
-    public User getUserById(long uniqueId);
-
 
 }

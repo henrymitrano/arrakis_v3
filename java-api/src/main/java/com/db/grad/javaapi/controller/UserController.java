@@ -29,12 +29,6 @@ public class UserController {
         return UserService.getAllUsers();
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity< User > getEmployeeById(@PathVariable(value = "id") Long id)
-            throws ResourceNotFoundException {
-        User users = UserService.getUserById(id);
-        return ResponseEntity.ok().body(users);
-    }
 
     @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user) {

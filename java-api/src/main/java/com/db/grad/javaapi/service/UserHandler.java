@@ -49,23 +49,6 @@ public class UserHandler implements UserService {
     }
 
 
-    @Override
-    public User getUserByUsername(User name){
-        User userToFind = new User();
-        userToFind.setUsername(name.getUsername());
-        List<User> users = itsUsersRepo.findByUsername(userToFind);
-        User result = null;
-
-        if( users.size() == 1)
-            result = users.get(0);
-
-        return result;
-    }
-    @Override
-    public User getUserById(long uniqueId){
-        return itsUsersRepo.findById(uniqueId).get();
-    }
-
 
 
 }

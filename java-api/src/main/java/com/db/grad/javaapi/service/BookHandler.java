@@ -47,19 +47,20 @@ public class BookHandler implements BookService {
         return  result;
     }
 
-    @Override
-    public Book getBookByBookNo(Book book){
-        Book bookToFind = new Book();
-        bookToFind.setBookNo(book.getBookNo());
-        List<Book> books = itsBooksRepo.findByBookNo(bookToFind);
-        Book result = null;
-
-        if( books.size() == 1)
-            result = books.get(0);
-
-        return result;
-    }
-    public Book getBookById(long uniqueId){
-        return itsBooksRepo.findById(uniqueId).get();
-    }
+//    @Override
+//    public Book getBookByBookNo(Book book){
+//        Book bookToFind = new Book();
+//        bookToFind.setBookNo(book.getBookNo());
+//        List<Book> books = itsBooksRepo.findByBookNo(bookToFind);
+//        Book result = null;
+//
+//        if( books.size() == 1)
+//            result = books.get(0);
+//
+//        return result;
+//    }
+//    @Override
+//    public Book getBookById(long uniqueId){
+//        return itsBooksRepo.findById(uniqueId).get();
+//    }
 }
