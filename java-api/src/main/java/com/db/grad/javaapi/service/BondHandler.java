@@ -54,12 +54,13 @@ public class BondHandler implements BondService {
 
     @Override
     public List<Bond> getMaturing(String stringDate) throws ParseException{
-        Date currentDate = new SimpleDateFormat("dd/MM/yyyy").parse(stringDate);
+        Date currentDate = new SimpleDateFormat("dd-MM-yyyy").parse(stringDate);
         List <Bond> bondsMatured = new ArrayList<>();
         Date futureDate = new Date();
         futureDate = DateUtils.addDays(currentDate,  6);
         for (Bond bond: bondRepository.findAll()){
-            Date bondDate = new SimpleDateFormat("dd/MM/yyyy").parse(bond.getMaturityDate());
+            String maturityDate = bond.getMaturityDate();
+            Date bondDate = new SimpleDateFormat("dd/MM/yyyy").parse(maturityDate);
             if(bondDate.after(currentDate) //Checks for within 5
                     && bondDate.before(futureDate)){
                 bondsMatured.add(bond);
@@ -70,12 +71,13 @@ public class BondHandler implements BondService {
 
     @Override
     public List<Bond> getMatured(String stringDate) throws ParseException {
-        Date currentDate = new SimpleDateFormat("dd/MM/yyyy").parse(stringDate);
+        Date currentDate = new SimpleDateFormat("dd-MM-yyyy").parse(stringDate);
         List <Bond> bondsMatured = new ArrayList<>();
         Date pastDate = new Date();
         pastDate = DateUtils.addDays(currentDate, - 6);
         for (Bond bond: bondRepository.findAll()){
-            Date bondDate = new SimpleDateFormat("dd/MM/yyyy").parse(bond.getMaturityDate());
+            String maturityDate = bond.getMaturityDate();
+            Date bondDate = new SimpleDateFormat("dd/MM/yyyy").parse(maturityDate);
             if(bondDate.before(currentDate) //Checks for within 5
                     && bondDate.after(pastDate)){
                 bondsMatured.add(bond);
