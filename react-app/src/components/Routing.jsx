@@ -40,13 +40,14 @@ function Routing() {
     </Navbar>
 
      <Routes>
-          <Route path="allbonds" element={<AllBonds/>} />
-          <Route path="recentlymaturedbonds" element={<RecentlyMaturedBonds/>} />
-          <Route path="soontomaturebonds" element={<SoonToMatureBonds/>} />
-          <Route path="mybooks" element={<Books/>} />
-          <Route path="bondsbyissuer" element={<BondsByIssuer/>} />
-          <Route path="bondsbyclient" element={<BondsByClient/>} />
-          <Route path="bondsbyids" element={<BondsByIds/>} />
+          <Route path="/" element={<AllBonds/>} />
+          <Route path="/allbonds" element={<AllBonds/>} />
+          <Route path="/recentlymaturedbonds" element={<RecentlyMaturedBonds/>} />
+          <Route path="/soontomaturebonds" element={<SoonToMatureBonds/>} />
+          <Route path="/mybooks" element={<Books/>} />
+          <Route path="/bondsbyissuer" element={<BondsByIssuer/>} />
+          <Route path="/bondsbyclient" element={<BondsByClient/>} />
+          <Route path="/bondsbyids" element={<BondsByIds/>} />
           
     </Routes> 
     {console.log("Im here")}

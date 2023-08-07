@@ -42,7 +42,6 @@ export const LoginPage = (props) => {
       if(user.password == password){
         alert("login successful!");
         props.setStatus(true);
-        navigate("/home");
       } else {
         alert("username or password incorrect");
       }

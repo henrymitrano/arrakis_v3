@@ -23,7 +23,7 @@ const App = () => {
     <>
     {!appStatus ? <LoginPage setStatus={setAppStatus}/>
   
-      : <Home/>
+      : <Routing/>
         }
         
         </>
