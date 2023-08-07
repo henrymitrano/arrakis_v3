@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import { Home} from './Home';
 
 
 
@@ -41,7 +42,7 @@ export const LoginPage = (props) => {
       if(user.password == password){
         alert("login successful!");
         props.setStatus(true);
-        navigate("/AllBonds");
+        navigate("/Home");
         
       } else {
         alert("username or password incorrect");
