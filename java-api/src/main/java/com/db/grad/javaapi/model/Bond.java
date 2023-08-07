@@ -27,7 +27,7 @@ public class Bond {
     private Date settlementDate;
     private String bondType;
     private int faceValue;
-    private long couponPercent;
+    private double couponPercent;
     private String bondStatus;
     private String tradeStatus;
 
@@ -61,14 +61,14 @@ public class Bond {
     public void setUnitPrice(long unitPrice) {
         this.unitPrice = unitPrice;
     }
-    @Column(name = "currency", nullable = false)
+    @Column(name = "trade_currency", nullable = false)
     public String getCurrency() {
         return currency;
     }
     public void setCurrency(String currency) {
         this.currency = currency;
     }
-    @Column(name = "buy_or_sell", nullable = false)
+    @Column(name = "trade_type", nullable = false)
     public String getBuyOrSell() {
         return buyOrSell;
     }
@@ -84,7 +84,7 @@ public class Bond {
     public void setTradeDate(Date tradeDate) {
         this.tradeDate = tradeDate;
     }
-    @Column(name = "settlement_date", nullable = false)
+    @Column(name = "trade_settlement_date", nullable = false)
     public Date getSettlementDate() {
         return settlementDate;
     }
@@ -92,7 +92,7 @@ public class Bond {
     public void setSettlementDate(Date settlementDate) {
         this.settlementDate = settlementDate;
     }
-    @Column(name = "bond_type", nullable = false)
+    @Column(name = "type", nullable = false)
     public String getBondType() {
         return bondType;
     }
@@ -109,14 +109,14 @@ public class Bond {
         this.faceValue = faceValue;
     }
     @Column(name = "coupon_percent", nullable = false)
-    public long getCouponPercent() {
+    public double getCouponPercent() {
         return couponPercent;
     }
 
-    public void setCouponPercent(long couponPercent) {
+    public void setCouponPercent(double couponPercent) {
         this.couponPercent = couponPercent;
     }
-    @Column(name = "bond_status", nullable = false)
+    @Column(name = "status", nullable = false)
     public String getBondStatus() {
         return bondStatus;
     }
@@ -130,9 +130,6 @@ public class Bond {
         return tradeStatus;
     }
 
-    public void setTradeStatus(String tradeStatus) {
-        this.tradeStatus = tradeStatus;
-    }
 
     @Column(name = "isin", nullable = false)
     public String getIsin() {
@@ -150,7 +147,7 @@ public class Bond {
     public void setCusip(int cusip) {
         this.cusip = cusip;
     }
-    @Column(name = "bond_issuer", nullable = false)
+    @Column(name = "issuer_name", nullable = false)
     public String getBondIssuer() {
         return bondIssuer;
     }
@@ -166,7 +163,7 @@ public class Bond {
     public void setBondHolder(String bondHolder) {
         this.bondHolder = bondHolder;
     }
-    @Column(name = "maturity_date", nullable = false)
+    @Column(name = "bond_maturity_date", nullable = false)
     public Date getMaturityDate() {
         return maturityDate;
     }

@@ -4,12 +4,15 @@ import { getAllBonds } from '../services/bond-service';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+
 export const AllBonds = () => {
     const [bonds,setBonds] = useState([]);
     useEffect(()=>{
         getAllBondsFromAPI();}, 
         []
 );
+
+
 const getAllBondsFromAPI = () => {
     getAllBonds()
   .then(res => {
@@ -19,6 +22,7 @@ const getAllBondsFromAPI = () => {
       setBonds([]);
       console.log(err);
   })
+
 }
 
 
@@ -39,6 +43,8 @@ const getAllBondsFromAPI = () => {
         bonds.map(bond=>(
             <BondDetail info={bond} key={bond.id.toString()} />
             ))
-        )
-        
+
+         
+    
+    )
 }
