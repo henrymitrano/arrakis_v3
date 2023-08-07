@@ -15,16 +15,16 @@ public class Bond {
     @Id
     private long id;
     private String isin;
-    private int cusip;
+    private String cusip;
     private String bondIssuer;
     private String bondHolder;
-    private Date maturityDate;
+    private String maturityDate;
     private int quantity;
-    private long unitPrice;
+    private double unitPrice;
     private String currency;
     private String buyOrSell;
-    private Date tradeDate;
-    private Date settlementDate;
+    private String tradeDate;
+    private String settlementDate;
     private String bondType;
     private int faceValue;
     private double couponPercent;
@@ -54,11 +54,11 @@ public class Bond {
         this.quantity = quantity;
     }
     @Column(name = "unit_price", nullable = false)
-    public long getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(long unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
     @Column(name = "trade_currency", nullable = false)
@@ -77,19 +77,19 @@ public class Bond {
         this.buyOrSell = buyOrSell;
     }
     @Column(name = "trade_date", nullable = false)
-    public Date getTradeDate() {
+    public String getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(Date tradeDate) {
+    public void setTradeDate(String tradeDate) {
         this.tradeDate = tradeDate;
     }
     @Column(name = "trade_settlement_date", nullable = false)
-    public Date getSettlementDate() {
+    public String getSettlementDate() {
         return settlementDate;
     }
 
-    public void setSettlementDate(Date settlementDate) {
+    public void setSettlementDate(String settlementDate) {
         this.settlementDate = settlementDate;
     }
     @Column(name = "type", nullable = false)
@@ -140,11 +140,11 @@ public class Bond {
         this.isin = isin;
     }
     @Column(name = "cusip", nullable = false)
-    public int getCusip() {
+    public String getCusip() {
         return cusip;
     }
 
-    public void setCusip(int cusip) {
+    public void setCusip(String cusip) {
         this.cusip = cusip;
     }
     @Column(name = "issuer_name", nullable = false)
@@ -164,11 +164,11 @@ public class Bond {
         this.bondHolder = bondHolder;
     }
     @Column(name = "bond_maturity_date", nullable = false)
-    public Date getMaturityDate() {
+    public String getMaturityDate() {
         return maturityDate;
     }
 
-    public void setMaturityDate(Date date) {
+    public void setMaturityDate(String date) {
         this.maturityDate = date;
     }
 }

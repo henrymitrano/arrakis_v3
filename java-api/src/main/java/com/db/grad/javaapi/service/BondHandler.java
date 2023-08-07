@@ -5,6 +5,10 @@ import com.db.grad.javaapi.repository.BondRepository;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -49,28 +53,31 @@ public class BondHandler implements BondService {
     }
 
     @Override
-    public List<Bond> getMaturing(Date currentDate) {
-        List <Bond> bondsMaturing = new ArrayList<>();
+    public List<Bond> getMaturing(String stringDate) throws ParseException{
+        Date currentDate = new SimpleDateFormat("dd/MM/yyyy").parse(stringDate);
+        List <Bond> bondsMatured = new ArrayList<>();
         Date futureDate = new Date();
-        futureDate = DateUtils.addDays(currentDate, 6);
+        futureDate = DateUtils.addDays(currentDate,  6);
         for (Bond bond: bondRepository.findAll()){
-            System.out.println("Here");
-            if(bond.getMaturityDate().after(currentDate) //Checks for within 5
-                    && bond.getMaturityDate().before(futureDate)){
-                bondsMaturing.add(bond);
+            Date bondDate = new SimpleDateFormat("dd/MM/yyyy").parse(bond.getMaturityDate());
+            if(bondDate.after(currentDate) //Checks for within 5
+                    && bondDate.before(futureDate)){
+                bondsMatured.add(bond);
             }
         }
-        return bondsMaturing;
+        return bondsMatured;
     }
 
     @Override
-    public List<Bond> getMatured(Date currentDate) {
+    public List<Bond> getMatured(String stringDate) throws ParseException {
+        Date currentDate = new SimpleDateFormat("dd/MM/yyyy").parse(stringDate);
         List <Bond> bondsMatured = new ArrayList<>();
         Date pastDate = new Date();
         pastDate = DateUtils.addDays(currentDate, - 6);
         for (Bond bond: bondRepository.findAll()){
-            if(bond.getMaturityDate().before(currentDate) //Checks for within 5
-                    && bond.getMaturityDate().after(pastDate)){
+            Date bondDate = new SimpleDateFormat("dd/MM/yyyy").parse(bond.getMaturityDate());
+            if(bondDate.before(currentDate) //Checks for within 5
+                    && bondDate.after(pastDate)){
                 bondsMatured.add(bond);
             }
         }
