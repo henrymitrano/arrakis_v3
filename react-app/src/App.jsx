@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Redirect, Routes, UseRoutes} from "react-router-dom";
 import Routing from "./components/Routing";
 import { useState } from "react";
+import Home from "./components/Home";
 
 const App = () => {
   const [appStatus, setAppStatus] = useState(false);
@@ -22,7 +23,7 @@ const App = () => {
     <>
     {!appStatus ? <LoginPage setStatus={setAppStatus}/>
   
-      : <Routing/>
+      : <Home/>
         }
         
         </>

@@ -39,7 +39,7 @@ function Routing() {
       </Container>
     </Navbar>
 
-    <Routes>
+     <Routes>
           <Route path="allbonds" element={<AllBonds/>} />
           <Route path="recentlymaturedbonds" element={<RecentlyMaturedBonds/>} />
           <Route path="soontomaturebonds" element={<SoonToMatureBonds/>} />
@@ -48,7 +48,8 @@ function Routing() {
           <Route path="bondsbyclient" element={<BondsByClient/>} />
           <Route path="bondsbyids" element={<BondsByIds/>} />
           
-    </Routes>
+    </Routes> 
+    {console.log("Im here")}
     </>
   );
 }
