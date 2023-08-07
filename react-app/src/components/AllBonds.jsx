@@ -3,6 +3,7 @@ import BondDetail from './BondDetail'
 import { getAllBonds } from '../services/bond-service';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import {Text} from 'react-native';
 
 
 export const AllBonds = () => {
@@ -28,6 +29,11 @@ export const AllBonds = () => {
 
     return (
           <>
+        
+        <Text>
+            Bond ID     Quantity                         ISIN                              CUSIP
+        </Text>
+
           {bonds.map(bond=>(
            <BondDetail info={bond} key={bond.id.toString()} />
           ))}

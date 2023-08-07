@@ -4,8 +4,8 @@
     const BondDetail = (props) => {
         return (
             <div>
-                {props.info.id}, {props.info.quantity}, {props.info.isin},
-                {props.info.cusip}, {props.info.trade_date}
+                 ___{props.info.id}_________{props.info.quantity}___________ {props.info.isin}___________
+                {props.info.cusip}
             </div>
           )
     }
