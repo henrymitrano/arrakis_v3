@@ -2,6 +2,7 @@ package com.db.grad.javaapi.service;
 
 import com.db.grad.javaapi.model.Bond;
 
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -18,8 +19,8 @@ public interface BondService {
 
     public List<Bond> getAllBonds();
 
-    public List<Bond> getMaturing(Date currentDate);
+    public List<Bond> getMaturing(String currentDate) throws ParseException;
 
-    public List<Bond> getMatured(Date  currentDate);
+    public List<Bond> getMatured(String  currentDate) throws ParseException;
 
 }
