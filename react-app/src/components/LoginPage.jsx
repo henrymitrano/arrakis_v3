@@ -4,8 +4,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 
-export const LoginPage = () => {  
+
+
+import { BrowserRouter as Router, Switch, Route, Redirect, Routes, UseRoutes} from "react-router-dom";
+
+
+
+
+export const LoginPage = (props) => {  
   const [show, setShow] = useState(false);
   const [login, setUsers] = useState([]);
   const [username, setUsername] = useState("");
@@ -18,7 +27,7 @@ export const LoginPage = () => {
   } 
   const handleShow = () => setShow(true);
 
- 
+  const navigate = useNavigate();
   const handleLogin = () => {
     if (!username || !password){
       alert("Username or Password is blank");
@@ -31,6 +40,9 @@ export const LoginPage = () => {
 
       if(user.password == password){
         alert("login successful!");
+        props.setStatus(true);
+        navigate("/AllBonds");
+        
       } else {
         alert("username or password incorrect");
       }
@@ -50,7 +62,7 @@ export const LoginPage = () => {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+        Login
       </Button>
 
       <Modal show={show} onHide={handleClose}>

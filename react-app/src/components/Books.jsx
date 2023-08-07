@@ -21,15 +21,7 @@ export const Books = () => {
               </tr>
             </thead>
             <tbody>
-              {d.map((book) => (
-                <tr key = {index}>
-
-
-
-                </tr>
-              ) 
               
-              )}
             </tbody>
           </Table>
         );
