@@ -29,14 +29,17 @@ export const AllBonds = () => {
 
     return (
           <>
-        
-        <Text>
-            Bond ID     Quantity                         ISIN                              CUSIP
-        </Text>
-
-          {bonds.map(bond=>(
-           <BondDetail info={bond} key={bond.id.toString()} />
-          ))}
+        <table>
+            <tr>
+                <th>Bond ID  </th>
+                <th>Quantity  </th>
+                <th>Bond ISIN  </th>
+                <th>Bond CUSIP</th>
+            </tr>
+            {bonds.map(bond=>(
+                <BondDetail info={bond} key={bond.id.toString()} />
+            ))}
+          </table>
 
           </> 
     

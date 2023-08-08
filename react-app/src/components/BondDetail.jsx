@@ -3,10 +3,12 @@
 
     const BondDetail = (props) => {
         return (
-            <div>
-                 ___{props.info.id}_________{props.info.quantity}___________ {props.info.isin}___________
-                {props.info.cusip}
-            </div>
+            <tr>
+                <td>{props.info.id}  </td>
+                <td>{props.info.quantity}  </td>
+                <td>{props.info.isin}  </td>
+                <td>{props.info.cusip}</td>
+            </tr>
           )
     }
 
